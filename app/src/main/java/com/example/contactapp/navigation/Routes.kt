@@ -1,5 +1,6 @@
 package com.example.contactapp.navigation
 
-data class Routes(val route: String){
-
+sealed class Routes(val route: String){
+    data object HomeScreen: Routes("HomeScreen")
+    data object AddNewContact: Routes("AddNewContact")
 }
