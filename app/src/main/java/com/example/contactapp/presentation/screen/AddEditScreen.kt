@@ -28,7 +28,6 @@ fun AddEditScreen(
     onEvent: () -> Unit
 ) {
 
-
     Scaffold(topBar = {
         TopAppBar(navigationIcon = {
             IconButton(onClick = { /*TODO*/ }) {
