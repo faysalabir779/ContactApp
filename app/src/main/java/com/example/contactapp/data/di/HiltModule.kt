@@ -18,6 +18,10 @@ object HiltModule {
             application.applicationContext,
             ContactDatabase::class.java,
             "ContactApp.db"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
+
+        //.fallbackToDestructiveMigration(), database er schema change
+        // hoile eta use korte hoy. eta use korle ager shob data r schema delete hoye jay.
+        //ei project e prothome image cilo na. but pore add kora hoice tai eta use korte hoice jeheto schema change hoice
     }
 }

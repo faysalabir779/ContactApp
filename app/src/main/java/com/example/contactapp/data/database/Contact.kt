@@ -10,5 +10,6 @@ data class Contact(
     var number: String,
     var email: String,
     var dateOfCreation: Long,
-    var isActive: Boolean = true
+    var isActive: Boolean,
+    var image: ByteArray? = null
 )
