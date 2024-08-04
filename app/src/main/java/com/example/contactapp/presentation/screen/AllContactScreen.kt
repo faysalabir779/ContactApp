@@ -213,10 +213,9 @@ fun ContactCard(
                 }
             }
             IconButton(onClick = {
-                isDelete = true
-//                val intent = Intent(Intent.ACTION_CALL)
-//                intent.data = android.net.Uri.parse("tel:${contact.number}")
-//                context.startActivity(intent)
+                val intent = Intent(Intent.ACTION_CALL)
+                intent.data = android.net.Uri.parse("tel:${contact.number}")
+                context.startActivity(intent)
             }) {
                 Icon(Icons.Filled.Call, contentDescription = null)
             }
