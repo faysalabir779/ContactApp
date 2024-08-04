@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import com.example.contactapp.data.database.Contact
 
 data class ContactState (
-    val contact: List<Contact> = emptyList(),
+    var contact: List<Contact> = emptyList(),
 
     val id: MutableState<Int> = mutableStateOf(0),
     val name: MutableState<String> = mutableStateOf(""),

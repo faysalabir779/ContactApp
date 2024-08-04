@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContactViewModel @Inject constructor(var database: ContactDatabase) : ViewModel() {
-    private var isSortedByName = MutableStateFlow(true)
+    private var isSortedByName = MutableStateFlow(false)
     private val contact = isSortedByName.flatMapConcat {
         if (it) {
             database.dao.getContactsSortByName()
