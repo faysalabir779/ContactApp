@@ -81,10 +81,9 @@ fun AllContactScreen(
     var contactToDelete by remember { mutableStateOf<Contact?>(null) }
     var isDelete by remember { mutableStateOf(false) }
 
-    val context = LocalContext.current
-    val preferenceHelper = Permission(context)
 
-    RequestCallPermission(preference = preferenceHelper)
+    //for the permission request
+    RequestCallPermission()
 
 
     Scaffold(
@@ -276,7 +275,7 @@ fun NoContact() {
 }
 
 @Composable
-fun RequestCallPermission(preference: Permission) {
+fun RequestCallPermission() {
     val context = LocalContext.current
     var hasCallPermission by remember {
         mutableStateOf(
@@ -294,11 +293,8 @@ fun RequestCallPermission(preference: Permission) {
     }
 
     LaunchedEffect(Unit) {
-        if (preference.isFirstLaunch()) {
-            if (!hasCallPermission) {
-                permissionLauncher.launch(Manifest.permission.CALL_PHONE)
-            }
-            preference.setFirstLaunch(false)
+        if (!hasCallPermission) {
+            permissionLauncher.launch(Manifest.permission.CALL_PHONE)
         }
     }
 }
